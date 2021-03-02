@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model BookListViewModel
+
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered table-hover table-responsive">
+            <thead class="thead-dark">
+                <tr><th scope="col">Column Number</th><th scope="col">Title</th><th scope="col">Author</th><th scope="col">Publisher</th><th scope="col">ISBN</th><th scope="col">Classification</th><th scope="col">Category</th><th scope="col">Price</th><th scope="col">Pages</th></tr>
+            </thead>
+            <tbody>
+                <!--For each loop, goes through each object in the model and displays there attributes in a table formatted below-->
+                @foreach (var b in Model.Books)
+                {
+                    <partial name="BookSummary" model="b"/>
+                }
+            </tbody>
+        </table>
+    </div> 
+</div>
+<div class="row justify-content-center">
+    <div page-model="@Model.PagingInfo" page-action="Index" page-classes-enabled="true" page-class="btn" page-class-normal="btn-outline-dark" 
+         page-class-selected="btn-primary" page-url-category="@Model.Type"
+         class="btn-group pull-right m-1">
+    </div>
+</div>
