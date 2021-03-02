@@ -28,7 +28,7 @@ namespace BC_IS413_Assignment7
             services.AddDbContext<AmazonBooksDBContext>(options =>
                {
                    //Connection string. Defined in appsettings.json
-                   options.UseSqlServer(Configuration["ConnectionStrings:AmazonBooksConnection"]);
+                   options.UseSqlite(Configuration["ConnectionStrings:AmazonBooksConnection"]);
                });
 
             services.AddScoped<IAmazonBooksRepository, EFAmazonBooksRepository>();
